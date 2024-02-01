@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Упражнение 8</title>
+		<script src="suica.min.js"></script>
+		
+		<script>
+			function main(x,y,z,r,m)
+			{
+				new Suica();
+				console.log(Suica.version);
+				oxyz();
+				demo();			
+
+				for(var i=1;i<=m;i++){
+					p=polygon([x,y,z],r,3);
+					p.mode=Suica.LINE;
+					p.focus=[1,0,0];
+					p.spin=radians(60*i);
+					r=r/2;
+				}
+				
+				
+			}
+		</script>
+	</head>
+	<body onload="main(0,5,3,10,7)">
+		<canvas width="1000" height="600" style="border: solid rgb(195, 231, 137) 1px;">Не се поддържа canvas!</canvas>
+		<noscript>Не се поддържа JS!</noscript>
+	</body>
+</html>

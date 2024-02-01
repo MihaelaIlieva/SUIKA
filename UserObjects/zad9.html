@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Упражнение 8</title>
+		<script src="suica.min.js"></script>
+		
+		<script>
+
+			
+			function main(x,y,z,r)
+			{
+				new Suica();
+				oxyz();
+				demo();			
+
+				var s=sphere([x,y,z],r).custom({clipPlanes:[[1,0,0,0],[0,1,0,0]],color:[1,0,0]});
+				var s=sphere([x,y,z],r).custom({clipPlanes:[[1,0,0,0],[0,-1,0,0]],color:[0,1,1]});
+				var s=sphere([x,y,z],r).custom({clipPlanes:[[-1,0,0,0],[0,1,0,0]],color:[0,1,0.5]});
+				var s=sphere([x,y,z],r).custom({clipPlanes:[[-1,0,0,0],[0,-1,0,0]],color:[0.5,1,0]});
+			}
+		</script>
+	</head>
+	<body onload="main(2,-15,-4,10)">
+		<canvas width="1200" height="800" style="border: solid rgb(195, 231, 137) 1px;">Не се поддържа canvas!</canvas>
+		<noscript>Не се поддържа JS!</noscript>
+	</body>
+</html>

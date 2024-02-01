@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Упражнение 10</title>
+		<script src="suica.min.js"></script>
+		
+		<script>
+			function main(x,y,z,a)
+			{
+				new Suica();
+				console.log(Suica.version);
+				oxyz();
+				demo();
+				
+				var rec1=rectangle([x,y,z],[a,2*a]);
+				rec1.focus=[1,0,0];
+
+				var rec2=rectangle([x,y+a/2,z-3/2*a],[a,2*a]);
+				rec2.focus=[1,0,0];
+				rec2.spin=radians(90);
+				rec2.color=[0,1,0];
+
+				var rec3=rectangle([x,y-3/2*a,z-a/2],[a,2*a]);
+				rec3.focus=[1,0,0];
+				rec3.spin=radians(90);
+				rec3.color=[0,1,0];
+
+				var rec4=rectangle([x,y-a,z-2*a],[a,2*a]);
+				rec4.focus=[1,0,0];
+			}
+		</script>
+	</head>
+	<body onload="main(2,4,7,15)">
+		<canvas width="1200" height="900" style="border: solid rgb(195, 231, 137) 1px;">Не се поддържа canvas!</canvas>
+		<noscript>Не се поддържа JS!</noscript>
+	</body>
+</html>

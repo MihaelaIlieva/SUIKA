@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Упражнение 8</title>
+		<script src="suica.min.js"></script>
+		
+		<script>
+			function main(x,y,z,r)
+			{
+				new Suica();
+				console.log(Suica.version);
+				oxyz();
+				demo();			
+
+				var c1=circle([x,y,z],r);
+				c1.mode=Suica.POINT;
+				c1.focus=[1,0,0];
+
+				var c2=circle([x,y+2*r+1,z],r);
+				c2.mode=Suica.LINE;
+				c2.focus=[1,0,0];
+
+				var c3=circle([x,y+2*(2*r+1),z],r);
+				c3.mode=Suica.SOLID;
+				c3.focus=[1,0,0];
+			}
+		</script>
+	</head>
+	<body onload="main(0,5,3,10)">
+		<canvas width="1000" height="600" style="border: solid rgb(195, 231, 137) 1px;">Не се поддържа canvas!</canvas>
+		<noscript>Не се поддържа JS!</noscript>
+	</body>
+</html>

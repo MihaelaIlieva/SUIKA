@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Упражнение 8</title>
+		<script src="suica.min.js"></script>
+		
+		<script>
+			function main(x,y,z,r)
+			{
+				new Suica();
+				console.log(Suica.version);
+				oxyz();
+				demo();
+				
+				var c1=circle([x,y,z],r);
+				c1.mode=Suica.LINE;
+				c1.focus=[1,0,0];
+				c1.color=[0,0,1];
+
+				var c2=circle([x,y+2*r+1,z],r);
+				c2.mode=Suica.LINE;
+				c2.focus=[1,0,0];
+				c2.color=[0,0,0];
+
+				var c3=circle([x,y+2*(2*r+1),z],r);
+				c3.mode=Suica.LINE;
+				c3.focus=[1,0,0];
+				c3.color=[1,0,0];
+
+				var c4=circle([x,y+r,z-r],r);
+				c4.mode=Suica.LINE;
+				c4.focus=[1,0,0];
+				c4.color=[1,1,0];
+
+				var c5=circle([x,y+3*r,z-r],r);
+				c5.mode=Suica.LINE;
+				c5.focus=[1,0,0];
+				c5.color=[0,1,0];
+			}
+		</script>
+	</head>
+	<body onload="main(2,3,5,7)">
+		<canvas width="1000" height="600" style="border: solid rgb(195, 231, 137) 1px;">Не се поддържа canvas!</canvas>
+		<noscript>Не се поддържа JS!</noscript>
+	</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Упражнение 10</title>
+		<script src="suica.min.js"></script>
+		
+		<script>
+			function main(x,y,z,a)
+			{
+				new Suica();
+				console.log(Suica.version);
+				oxyz();
+				demo();
+				
+				var c=cube([x,y,z],a);
+				c.color=[random(0,1),random(0,1),random(0,1)];
+			}
+		</script>
+	</head>
+	<body onload="main(2,4,7,15)">
+		<canvas width="1200" height="900" style="border: solid rgb(195, 231, 137) 1px;">Не се поддържа canvas!</canvas>
+		<noscript>Не се поддържа JS!</noscript>
+	</body>
+</html>

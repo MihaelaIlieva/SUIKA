@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Упражнение 8</title>
+		<script src="suica.min.js"></script>
+		
+		<script>
+			function main(r,n)
+			{
+				new Suica();
+				console.log(Suica.version);
+				oxyz();
+				demo();
+				
+				// където ще се пресичат
+				var xc=random(-10,10);
+				var yc=random(-10,10);
+				var zc=random(-10,10);
+
+				var alpha=radians(random(0,360));
+
+				for(var i=0;i<n;i++){
+					x=xc;
+					y=yc+r*Math.sin(alpha);
+					z=zc+r*Math.cos(alpha);
+
+					c=circle([x,y,z],r);
+					c.mode=Suica.LINE;
+					c.focus=[1,0,0];
+					alpha+=radians(360/n);
+				}
+			}
+		</script>
+	</head>
+	<body onload="main(12,7)">
+		<canvas width="1000" height="600" style="border: solid rgb(195, 231, 137) 1px;">Не се поддържа canvas!</canvas>
+		<noscript>Не се поддържа JS!</noscript>
+	</body>
+</html>

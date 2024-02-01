@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Задача 6</title>
+
+	<script src="suica.min.js"></script>
+
+	<script>
+		
+		function main(n)
+		{
+            new Suica();
+            oxyz();
+            demo();
+            var p1=point([n/2,-n/2,n/2]);
+            var p2=point([-n/2,-n/2,n/2]);
+            var p3=point([-n/2,-n/2,-n/2]);
+            var p4=point([n/2,-n/2,-n/2]);
+
+            p1.color=[random(0,1),random(0,1),random(0,1)];
+            p1.pointSize=17;
+            p2.color=[random(0,1),random(0,1),random(0,1)];
+            p2.pointSize=17;
+            p3.color=[random(0,1),random(0,1),random(0,1)];
+            p3.pointSize=17;
+            p4.color=[random(0,1),random(0,1),random(0,1)];
+            p4.pointSize=17;
+
+            //zad 7
+            var p5=point([n/2,n/2,n/2]);
+            var p6=point([-n/2,n/2,n/2]);
+            var p7=point([-n/2,n/2,-n/2]);
+            var p8=point([n/2,n/2,-n/2]);
+            p5.color=[random(0,1),random(0,1),random(0,1)];
+            p5.pointSize=17;
+            p6.color=[random(0,1),random(0,1),random(0,1)];
+            p6.pointSize=17;
+            p7.color=[random(0,1),random(0,1),random(0,1)];
+            p7.pointSize=17;
+            p8.color=[random(0,1),random(0,1),random(0,1)];
+            p8.pointSize=17;
+
+		}
+	</script>	
+</head>
+
+<body onload="main(15)">
+    <canvas width="1000" height="600" style="border: solid rgb(195, 231, 137) 1px;">Не се поддържа canvas!</canvas>
+		<noscript>Не се поддържа JS!</noscript>
+</body>

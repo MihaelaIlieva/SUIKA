@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Задача 4</title>
+
+	<script src="suica.min.js"></script>
+
+	<script>
+		function vLen(a)
+		{
+			return Math.sqrt(a[0]*a[0]+a[1]*a[1]+a[2]*a[2]);
+		}
+		
+		function main()
+		{
+            var A=[3,-5,1];
+            var B=[-2,4,7];
+            var C=[6,-4,0];
+
+            var AB=[A[0]-B[0],A[1]-B[1],A[2]-B[2]];
+            var CA=[C[0]-A[0],C[1]-A[1],C[2]-A[2]];
+            var CB=[C[0]-B[0],C[1]-B[1],C[2]-B[2]];
+
+            console.log("Вектор AB ",AB);
+            console.log("Вектор CA ",CA);
+            console.log("Вектор CB ",CB);
+
+            console.log("Дължинста на AB = ",vLen(AB));
+            console.log("Дължинста на CA = ",vLen(CA));
+            console.log("Дължинста на CB = ",vLen(CB));
+
+            console.log("Скаларното произведение на CA.CB = ",CA[0]*CB[0]+CA[1]*CB[1]+CA[2]*CB[2]);
+            console.log("Скаларното произведение на CA.CB = ",scalarProduct(CA,CB));
+            console.log("Векторното произведение на CA.CB = ",vectorProduct(CA,CB));
+		}
+	</script>	
+</head>
+
+<body onload="main()">
+
+</body>

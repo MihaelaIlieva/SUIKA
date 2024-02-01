@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Упражнение 10</title>
+		<script src="suica.min.js"></script>
+		
+		<script>
+			function main(x,y,z,a,b,c)
+			{
+				new Suica();
+				console.log(Suica.version);
+				oxyz();
+				demo();							
+
+				var cbd1=cuboid([x,y,z],[a,b,c]);
+				cbd1.mode=Suica.POINT;
+				var cbd2=cuboid([x,y+b+2,z],[a,b,c]);
+				cbd2.mode=Suica.LINE;
+				var cbd3=cuboid([x,y+2*(b+2),z],[a,b,c]);
+				cbd3.mode=Suica.SOLID;
+			}
+		</script>
+	</head>
+	<body onload="main(2,4,7,3,5,7)">
+		<canvas width="1500" height="1200" style="border: solid rgb(195, 231, 137) 1px;">Не се поддържа canvas!</canvas>
+		<noscript>Не се поддържа JS!</noscript>
+	</body>
+</html>

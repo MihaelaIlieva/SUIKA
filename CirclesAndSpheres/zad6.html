@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Упражнение 8</title>
+		<script src="suica.min.js"></script>
+		
+		<script>
+			function main(r,n)
+			{
+				new Suica();
+				console.log(Suica.version);
+				oxyz();
+				demo();
+				
+				a=radians(random(0,360));
+				xp=random(-10,10);
+				yp=random(-10,10);
+				zp=random(-10,10);
+				for(var i=0;i<n;i++){
+					x=xp+0;
+					y=yp+r/(Math.sin(radians(180/n)))*Math.sin(a);
+					z=zp+r/(Math.sin(radians(180/n)))*Math.cos(a);
+					
+					circle([x,y,z],r).custom({focus:[1,0,0]});
+					a+=radians(360/n);
+				}
+			}
+		</script>
+	</head>
+	<body onload="main(5,9)">
+		<canvas width="1000" height="600" style="border: solid rgb(195, 231, 137) 1px;">Не се поддържа canvas!</canvas>
+		<noscript>Не се поддържа JS!</noscript>
+	</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Упражнение 8</title>
+		<script src="suica.min.js"></script>
+		
+		<script>
+
+			function BlueCylinder(x,y,z,r){
+				var h=random(3,15);
+				return cylinder([x,y,z],r,h).custom({color:[0,random(0.5,1),random(0.7,1)]});
+			}
+			
+			function main(x,y,z,n,m,r)
+			{
+				new Suica();
+				oxyz();
+				demo(80,1,0.8);			
+
+				nachY=y;
+
+				for(var i=0;i<m;i++){
+					for(var j=0;j<n;j++){
+						BlueCylinder(x,y,z,r);
+						y+=2*r;
+					}
+					x+=r*Math.sqrt(3);
+					y=nachY;
+					if(i%2==0){
+						y+=r;
+					}
+				}
+
+			}
+		</script>
+	</head>
+	<body onload="main(20,-10,4,8,5,3)">
+		<canvas width="1000" height="600" style="border: solid rgb(195, 231, 137) 1px;">Не се поддържа canvas!</canvas>
+		<noscript>Не се поддържа JS!</noscript>
+	</body>
+</html>

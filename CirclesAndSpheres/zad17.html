@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Упражнение 8</title>
+		<script src="suica.min.js"></script>
+		
+		<script>
+			function main(x,y,z,r1,r2,h)
+			{
+				new Suica();
+				console.log(Suica.version);
+				oxyz();
+				demo();
+				
+				cylindroid([x,y,z],[r1,r2],h).custom({mode:Suica.SOLID});
+				cylindroid([x,y+2*r2+1,z],[r1,r2],h).custom({mode:Suica.LINE});
+
+				conoid([x,y+2*(2*r2+1),z],[r1,r2],h).custom({mode:Suica.SOLID});
+				conoid([x,y+3*(2*r2+1),z],[r1,r2],h).custom({mode:Suica.LINE});
+			}
+		</script>
+	</head>
+	<body onload="main(2,3,5,6,9,10)">
+		<canvas width="1000" height="600" style="border: solid rgb(195, 231, 137) 1px;">Не се поддържа canvas!</canvas>
+		<noscript>Не се поддържа JS!</noscript>
+	</body>
+</html>

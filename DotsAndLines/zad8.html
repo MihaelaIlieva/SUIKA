@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Упражнение 8</title>
+		<script src="suica.min.js"></script>
+		
+		<script>
+		//ако тук добавим xc,yc,zc като параметри, то
+			function main(n,r,x,y,z)
+			{
+				new Suica();
+				oxyz();
+				demo();				
+				
+				for(var i=0;i<n;i++){
+					var alpha=radians(random(0,90));
+					// 0 - 180 горната част
+					// 180 - 360 долната част
+					var beta=radians(random(90,270));
+					
+					var xp=x+r*Math.cos(alpha)*Math.cos(beta);
+					var yp=y+r*Math.sin(alpha)*Math.cos(beta);
+					var zp=z+r*Math.sin(beta);
+					
+					var p=point([xp,yp,zp]);
+					p.color=[Math.random(),Math.random(),Math.random()];
+					p.pointSize=7;
+				}
+			}
+		</script>
+		
+	</head>
+	<body onload="main(300,15,-5,7,9)">
+		<canvas width="1000" height="600" style="border: solid black 1px;">Не се поддържа canvas!</canvas>
+		<noscript>Не се поддържа JS!</noscript>
+	</body>
+</html>
