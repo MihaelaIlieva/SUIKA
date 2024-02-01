@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Упражнение 16</title>
+		<script src="suica.min.js"></script>
+		
+		<script>
+			function main()
+			{
+				p=new Suica();
+				
+				c=cylinder([random(-10,10),random(-10,10),random(-10,10)],random(5,10),random(10,20));
+
+				//                       zashtoto e perpendikulqrno na Oxy
+				lookAt([c.center[0],c.center[1]+0.1,c.center[2]+5*c.height],c.center,[0,0,1]);
+			}
+		</script>
+		
+	</head>
+	<body onload="main()">
+		<canvas width="1300" height="800" style="border: solid black 1px;">Не се поддържа canvas!</canvas>
+		<noscript>Не се поддържа JS!</noscript>
+	</body>
+</html>

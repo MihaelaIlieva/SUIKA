@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Упражнение за анимация</title>
+		<script src="suica.min.js"></script>
+		
+		<script>
+			function main()
+			{
+				p=new Suica();
+				oxyz();
+				demo();
+
+				R=sphere([random(-20,20),random(-20,20),random(-20,20)],random(3,6)).custom({color:[1,0,0]});
+
+				G=sphere([random(-20,20),random(-20,20),random(-20,20)],R.radius+2).custom({color:[0,1,0]});
+				//ot zelenata kum chervenata, zashtoto q goni
+				v=vectorPoints(R.center,G.center);
+				p.nextFrame=move;
+			}
+
+			function move(){
+
+				distGR=Math.sqrt(Math.pow((R.center[0]-G.center[0]),2)+Math.pow((R.center[1]-G.center[1]),2)+Math.pow((R.center[2]-G.center[2]),2));
+				if(distGR>G.radius-R.radius){
+					// za obhojdane na trite koordinati
+					for(var i=0;i<3;i++){
+						G.center[i]+=v[i]*Suica.dTime*0.3;
+					}
+				}
+			}
+
+		</script>
+		
+	</head>
+	<body onload="main()">
+		<canvas width="1300" height="800" style="border: solid black 1px;">Не се поддържа canvas!</canvas>
+		<noscript>Не се поддържа JS!</noscript>
+	</body>
+</html>

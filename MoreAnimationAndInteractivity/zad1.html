@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Упражнение 16</title>
+		<script src="suica.min.js"></script>
+		
+		<script>
+			function main()
+			{
+				p=new Suica();
+				// otmestwane po oz s towa 20.1, za da q wijdame
+				// mojem da se mestim i po x i po y
+				// tuk nie se mestim, a ne scenata
+				lookAt([50,50,150],[0,0,0],[0,0,1]);
+				prism([0,0,0],30,1,4);
+
+				p.nextFrame=ChangeVP;
+			}
+
+			function ChangeVP(){
+				if(Suica.time<45){
+					lookAt([50,50,150-7*Suica.time],[0,0,0],[0,0,1]);
+				}
+			}
+		</script>
+		
+	</head>
+	<body onload="main()">
+		<canvas width="1300" height="800" style="border: solid black 1px;">Не се поддържа canvas!</canvas>
+		<noscript>Не се поддържа JS!</noscript>
+	</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Упражнение за кръгови движения</title>
+		<script src="suica.min.js"></script>
+		
+		<script>
+			function main()
+			{
+				p=new Suica();
+				oxyz();
+				demo();
+
+				c=circle([random(-20,20),random(-20,20),random(-20,20)],random(15,20)).custom({mode:Suica.LINE});
+				a=radians(random(0,360));
+				s=sphere([c.center[0]+c.radius*Math.cos(a),c.center[1]+c.radius*Math.sin(a),c.center[2]],c.radius/7);
+
+
+				c1=circle(s.center,s.radius+5);
+				c1.mode=Suica.LINE;
+				sx=c1.center[0]+c1.radius*Math.cos(a);
+				sy=c1.center[1]+c1.radius*Math.sin(a);
+				sz=c1.center[2];
+				s1=sphere([sx,sy,sz],c1.radius-7);
+
+				p.nextFrame=move;
+			}
+
+			function move(){
+				a+=radians(0.5);
+				s.center=[c.center[0]+c.radius*Math.cos(a),c.center[1]+c.radius*Math.sin(a),c.center[2]];
+				c1.center=s.center;
+				// - за да се движи в обратната посока; 2 за да се забърза
+				s1.center=[c1.center[0]+c1.radius*Math.cos(-a*2),c1.center[1]+c1.radius*Math.sin(-a*2),c1.center[2]];
+			}
+
+		</script>
+		
+	</head>
+	<body onload="main()">
+		<canvas width="1300" height="800" style="border: solid black 1px;">Не се поддържа canvas!</canvas>
+		<noscript>Не се поддържа JS!</noscript>
+	</body>
+</html>
