@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Упражнение 8</title>
+		<script src="suica.min.js"></script>
+		
+		<script>
+			function main(x,y,z,a)
+			{
+				new Suica();
+				oxyz();
+				demo();
+				
+				var c=cube([x,y,z],a);
+				var s1=segment([x+a,y,z],[x-a,y,z]);
+				var s2=segment([x,y+a,z],[x,y-a,z]);
+				var s3=segment([x,y,z+a],[x,y,z-a]);
+
+				var c1=sphere(s1.from,a/4);
+				var c2=sphere(s1.to,a/4);
+
+				var c3=sphere(s2.from,a/4);
+				var c4=sphere(s2.to,a/4);
+
+				var c5=sphere(s3.from,a/4);
+				var c6=sphere(s3.to,a/4);
+
+				var g=group([c,s1,s2,s3,c1,c2,c3,c4,c5,c6]);
+				g.focus=[random(0,1),random(0,1),random(0,1)];
+			}
+		</script>
+		
+	</head>
+	<body onload="main(2,5,4,10)">
+		<canvas width="1300" height="800" style="border: solid black 1px;">Не се поддържа canvas!</canvas>
+		<noscript>Не се поддържа JS!</noscript>
+	</body>
+</html>

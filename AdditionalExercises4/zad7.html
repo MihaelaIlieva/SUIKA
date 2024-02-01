@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Упражнение 16</title>
+		<script src="suica.min.js"></script>
+		
+		<script>
+			function main()
+			{
+				p=new Suica();
+				orthographic(-200,200);
+				lookAt([0,0,50],[0,0,0],[0,1,0]);
+
+				p.gl.canvas.addEventListener("mousedown",mouseDown);
+				p.gl.canvas.addEventListener("contextmenu",contextMenu);
+
+				howManyPoints=0;
+			}
+			function mouseXY(event){
+				var x=event.clientX-event.target.offsetLeft-event.target.offsetWidth/2;
+				var y=-(event.clientY-event.target.offsetTop-event.target.offsetHeight/2);
+				var z=0;
+				return [x,y,z];
+			}
+
+			
+			function mouseDown(event){
+
+				if(howManyPoints==0){
+					point(mouseXY(event)).custom({pointSize:7,color:[1,0,0]});
+					previous=mouseXY(event);
+					howManyPoints++;
+				}
+				else{
+					p=point(mouseXY(event)).custom({pointSize:7,color:[1,0,0]});
+					segment(p.center,previous);
+					previous=p.center;
+					howManyPoints++;
+				}
+				
+				previous=mouseXY(event);
+				current=mouseXY(event);
+				howManyPoints++;
+				if(howManyPoints>0){
+					segment(previous,current);
+				}
+			}
+
+			function contextMenu(event){
+				event.preventDefault();
+			}
+			
+		</script>
+		
+	</head>
+	<body onload="main()">
+		<canvas width="1300" height="800" style="border: solid black 1px;">Не се поддържа canvas!</canvas>
+		<noscript>Не се поддържа JS!</noscript>
+	</body>
+</html>

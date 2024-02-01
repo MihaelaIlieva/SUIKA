@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Упражнение 16</title>
+		<script src="suica.min.js"></script>
+		
+		<script>
+            function main(){
+				p=new Suica();
+                s1=sphere([random(-20,20),random(-20,20),random(-20,20)],random(10,15)).custom({color:[0,1,0]});
+				s2=sphere([random(-20,20),random(-20,20),random(-20,20)],7).custom({color:[1,0,0]});
+				v=vectorPoints(s2.center,s1.center);
+				d=Math.sqrt(Math.pow(s1.center[0]-s2.center[0],2)+Math.pow(s1.center[1]-s2.center[1],2)+Math.pow(s1.center[2]-s2.center[2],2));
+
+				p.nextFrame=move;
+			}
+
+			function move(){
+				if(d>s1.radius-s2.radius){
+					for(var i=0;i<3;i++){
+					s1.center[i]+=v[i]*Suica.dTime;
+					d=Math.sqrt(Math.pow(s1.center[0]-s2.center[0],2)+Math.pow(s1.center[1]-s2.center[1],2)+Math.pow(s1.center[2]-s2.center[2],2));
+					}
+				}
+			}
+
+
+		</script>
+		
+	</head>
+	<body onload="main()">
+		<canvas width="1300" height="800" style="border: solid black 1px;">Не се поддържа canvas!</canvas>
+		<noscript>Не се поддържа JS!</noscript>
+	</body>
+</html>

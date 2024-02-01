@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Упражнение 16</title>
+		<script src="suica.min.js"></script>
+		
+		<script>
+			function main()
+			{
+				p=new Suica();
+				
+				c=cube([random(-20,20),random(-20,20),random(-20,20)],15).custom({mode:Suica.LINE});
+				segment([c.center[0]+c.size/2,c.center[1]-c.size/2,c.center[2]-c.size/2],[c.center[0]-c.size/2,c.center[1]+c.size/2,c.center[2]+c.size/2]);
+				s=sphere([c.center[0]+c.size/2,c.center[1]-c.size/2,c.center[2]-c.size/2],2.5);
+
+				p.nextFrame=move;
+			}
+
+			function move(){
+				A=[c.center[0]+c.size/2,c.center[1]-c.size/2,c.center[2]-c.size/2];
+				B=[c.center[0]-c.size/2,c.center[1]+c.size/2,c.center[2]+c.size/2];
+
+				k=Math.abs(Math.sin(Suica.time));
+				//k=0.5+0.5*Math.sin(Suica.time);
+
+				for(var i=0;i<3;i++){
+					s.center[i]=A[i]*(1-k)+B[i]*k;
+				}
+			}
+		</script>
+		
+	</head>
+	<body onload="main()">
+		<canvas width="1300" height="800" style="border: solid black 1px;">Не се поддържа canvas!</canvas>
+		<noscript>Не се поддържа JS!</noscript>
+	</body>
+</html>

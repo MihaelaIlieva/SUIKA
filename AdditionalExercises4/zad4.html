@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Упражнение 16</title>
+		<script src="suica.min.js"></script>
+		
+		<script>
+			function main()
+			{
+				p=new Suica();
+				oxyz();
+				c=circle([0,0,0],7).custom({color:[0,1,0],focus:[0,0,1],mode:Suica.LINE});
+				alpha=radians(random(0,360));
+				s=sphere([Math.cos(alpha)*7,Math.sin(alpha)*7,0],1).custom({color:[1,0,0]});
+				beta=radians(random(0,360));
+				c1=circle(s.center,3).custom({color:[0,1,0],focus:[0,0,1],mode:Suica.LINE});
+				s1=sphere([c1.center[0]+Math.cos(beta)*3,c1.center[1]+Math.sin(beta)*3,c1.center[2]],0.5).custom({color:[1,0,0]});
+				p.nextFrame=move;
+			}
+
+			function move(){
+				alpha+=radians(1);
+				beta-=radians(1);
+				s.center=[Math.cos(alpha)*7,Math.sin(alpha)*7,0];
+				c1.center=s.center;
+				s1.center=[c1.center[0]+Math.cos(beta)*3,c1.center[1]+Math.sin(beta)*3,c1.center[2]];
+			}
+			
+		</script>
+		
+	</head>
+	<body onload="main()">
+		<canvas width="1300" height="800" style="border: solid black 1px;">Не се поддържа canvas!</canvas>
+		<noscript>Не се поддържа JS!</noscript>
+	</body>
+</html>

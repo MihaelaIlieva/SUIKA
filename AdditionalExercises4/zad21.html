@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Упражнение 16</title>
+		<script src="suica.min.js"></script>
+		
+		<script>
+            function main(){
+				p=new Suica();
+                orthographic(-200,200);
+				lookAt([0,0,100],[0,0,0],[0,1,0]);
+
+				p.gl.canvas.addEventListener("mousedown",mouseDown);
+				p.gl.canvas.addEventListener("contextmenu",contextMenu);
+
+				counting=0;
+				previous=undefined;
+			}
+			function mouseXY(event){
+				x=event.clientX-event.target.offsetLeft-event.target.offsetWidth/2;
+				y=-(event.clientY-event.target.offsetTop-event.target.offsetHeight/2);
+				z=0;
+				return [x,y,z];
+			}
+			function contextMenu(event){
+				event.preventDefault();
+			}
+			function mouseDown(event){
+				if(counting==0){
+					point(mouseXY(event)).custom({pointSize:7,color:[1,0,0]});
+					previous=mouseXY(event);
+					counting++;
+				}
+				else{
+					point(mouseXY(event)).custom({pointSize:7,color:[1,0,0]});
+					segment(previous,mouseXY(event));
+					previous=mouseXY(event);
+				}
+			}
+			
+		</script>
+		
+	</head>
+	<body onload="main()">
+		<canvas width="1300" height="800" style="border: solid black 1px;">Не се поддържа canvas!</canvas>
+		<noscript>Не се поддържа JS!</noscript>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Упражнение 8</title>
+		<script src="suica.min.js"></script>
+		
+		<script>
+			function main(x,y,z,r,n,h)
+			{
+				new Suica();
+				oxyz();
+				demo();
+				
+				sphere([x,y,z],r).custom({color:[1,0,0],
+					clipPlanes:[[0,0,1,0]]
+				});
+
+				for(var i=0;i<n;i++){
+					 alpha=radians(random(0,360));
+					 beta=radians(random(5,170));
+					 xs=x+(r-0.7)*Math.cos(alpha)*Math.cos(beta);
+					 ys=y+(r-0.7)*Math.sin(alpha)*Math.cos(beta);
+					 zs=z+(r-0.7)*Math.sin(beta);
+					sphere([xs,ys,zs],r/10).custom({color:[1,1,1]});
+				}
+				cylinder([x,y,z-h],r/3,h).custom({color:[1,1,1]});
+
+				pyramid([x,y,z-h/5],r/1.5,h/3,n).custom({color:[1,1,1]});
+			}
+		</script>
+		
+	</head>
+	<body onload="main(2,5,10,15,30,20)">
+		<canvas width="1300" height="800" style="border: solid black 1px;">Не се поддържа canvas!</canvas>
+		<noscript>Не се поддържа JS!</noscript>
+	</body>
+</html>

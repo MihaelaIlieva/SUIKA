@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Упражнение 16</title>
+		<script src="suica.min.js"></script>
+		
+		<script>
+            function main(){
+				p=new Suica();
+                c=circle([random(-20,20),random(-20,20),random(-20,20)],20).custom({color:[0,1,0],mode:Suica.LINE});
+				alpha=radians(random(0,360));
+				x=c.center[0]+c.radius*Math.cos(alpha);
+				y=c.center[1]+c.radius*Math.sin(alpha);
+				z=c.center[2];
+				s=sphere([x,y,z],5).custom({color:[1,0,0]});
+
+				beta=radians(random(0,360));
+				c1=circle(s.center,10).custom({color:[0,1,0],mode:Suica.LINE});
+				s1=sphere([c1.center[0]+c1.radius*Math.cos(beta),c1.center[1]+c1.radius*Math.sin(beta),c1.center[2]],3).custom({color:[0,1,1]});
+
+				p.nextFrame=move;
+			}
+
+			function move(){
+				s.center=[c.center[0]+c.radius*Math.cos(alpha),c.center[1]+c.radius*Math.sin(alpha),c.center[2]];
+				c1.center=s.center;
+				s1.center=[c1.center[0]+c1.radius*Math.cos(beta),c1.center[1]+c1.radius*Math.sin(beta),c1.center[2]];
+				alpha+=radians(1);
+				beta+=radians(3);
+			}
+
+		</script>
+		
+	</head>
+	<body onload="main()">
+		<canvas width="1300" height="800" style="border: solid black 1px;">Не се поддържа canvas!</canvas>
+		<noscript>Не се поддържа JS!</noscript>
+	</body>
+</html>
