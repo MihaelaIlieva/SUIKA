@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Задача 3: Съдържание на текстово поле</title>
+        <meta charset="utf-8">
+        <script>
+            function main(){
+                
+                var flag=0;
+                var firstName=document.getElementById("firstName").value;
+                var secondName=document.getElementById("secondName").value;
+                if(firstName==""||secondName==""){
+                    document.getElementById("result").innerHTML="Въведете име и фамилия!";
+                    flag=1;
+                }
+                var yearOfBirth=Number(document.getElementById("yearOfBirth").value);
+                
+                var now= new Date();
+                var currYears=now.getFullYear()-yearOfBirth;
+                if(yearOfBirth/9999>1||yearOfBirth<0||yearOfBirth>now.getFullYear()){
+                    document.getElementById("result").innerHTML="Въвели сте неточна година!";
+                    flag=1;
+                }
+                //console.log("Настоящата възраст на "+firstName+" "+secondName+" е: "+currYears+" години.");
+                if(flag==0){
+                    document.getElementById("result").innerHTML="Настоящата възраст на "+firstName+" "+secondName+" е: "+currYears+" години.";
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <p>
+            Име: <input type="text" id="firstName" value size="20">
+        </p>
+        <p>
+            Фамилия: <input type="text" id="secondName" value size="20">
+        </p>
+        <p>
+            Година на раждане: <input type="text" id="yearOfBirth" value size="20">
+        </p>
+        <button onclick="main()">Изчисли възраст</button>
+        <p id="result"></p>
+    </body>
+</html>

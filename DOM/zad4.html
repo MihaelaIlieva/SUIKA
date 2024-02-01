@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Съдържание на списъчно поле</title>
+        <meta charset="utf-8">
+        <script>
+            function main(){
+                var dayOfWeek=document.getElementById("list").value;
+                document.getElementById("sel").innerHTML="Избраният ден от седмицата е "+dayOfWeek+"  .";
+            }
+        </script>
+    </head>
+    <body>
+        <p>
+            Изберете ден от седмицата:
+            <select id="list" onchange="main()">
+                <option value="понеделник">Понеделник</option>
+                <option value="вторник">Вторник</option>
+                <option value="сряда">Сряда</option>
+                <option value="четвъртък">Четвъртък</option>
+                <option value="петък">Петък</option>
+                <option value="събота">Събота</option>
+                <option value="неделя">Неделя</option>
+            </select>
+        </p>
+        <span id="sel"></span>
+    </body>
+</html>

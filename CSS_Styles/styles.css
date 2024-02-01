@@ -1,0 +1,87 @@
+body{
+	background-color:#AD9C84;
+	text-align:justify;
+}
+ul{
+	text-align:center;
+	margin-top:3em;
+	margin-bottom:2em;
+	padding-bottom:2em;
+	border-bottom-style:solid;
+	border-bottom-color:blue;
+}
+li{background-color: rgba(135,206,235,1.0);
+	/*елементите да са на един ред*/
+	display:inline;
+	padding: 5px 10px; /**отстъпи от текста с цвета на фона на текста**/
+	margin: 10px; /**отстъпи от текста с прозрачен фон**/
+	text-align: center;	
+}
+.theorem{
+	background-color:#FFFBF5;
+}
+h1{
+	
+	color:#3690AB;
+	text-align:center;
+	font-family:"Times New Roman",serif;
+	text-transform:uppercase;
+}
+.mainText{
+	color:#1A4551;
+	text-align:justify;
+	font-family:"Times New Roman",serif;
+}
+.theorem{
+	color:#42B0D1;
+	font-family:Arial,sans-serif;
+	font-style:italic;
+	font-size:12pt;
+	text-align:center;
+	border-left: solid rgba(135,206,235,1.0) 5px;
+	border-right: solid rgba(135,206,235,1.0) 5px;
+	margin-left: 5%; /**отстъп от ляво за подравняване на теорема**/
+	margin-right: 5%; /**отстъп от дясно за подравняване на теорема**/
+	padding: 5px 2em; /**отстъпи над и под текста на теоремата и между текста на теоремата и вертикалните линии от ляво и дясно**/
+}
+.formula{
+	text-align:center;
+	font-weight:bold;
+	font-size:15pt;
+}
+p b{
+	font-size: 14pt;
+}
+a:link{
+	/*да не са подчертани хипервръзките*/
+	text-decoration:none;
+	color:green;
+}
+a:visited{
+	color:#3690AB;
+}
+a:hover{
+	color:#FFFFFF;
+}
+li:hover{
+	background-color:#AD9C84;
+}
+img{
+	position:relative;
+	left:43%;
+	margin-top:20px;
+	margin-bottom:20px;
+}
+.additionalText{
+	font-style:italic;
+	font-family:Arial,serif;
+	font-size:80%;
+	text-align:center;
+}
+.wholePage{
+		border:none;
+		width:700px;
+		background-color:AntiqueWhite;
+		margin: 2em auto;
+		padding: 1em;
+}
